@@ -14,7 +14,7 @@ $currency = getCurrency(null, 1);
 
 $reportdata['tableheadings'] = array(
     "Month",
-    "Cancellations",
+    "Cancellation Requests",
 );
 
 $reportvalues = array();
@@ -56,8 +56,8 @@ foreach ($months as $k => $monthName) {
 
 }
 $numeric_month = (int)date("m", strtotime($currentmonth));
-$months = ($currentyear == date("Y", strtotime($currentmonth)))? $numeric_month : 12;
-$average_monthly = number_format($overall_cancellations / $months);
+$num_months = ($currentyear == date("Y", strtotime($currentmonth)))? $numeric_month : 12;
+$average_monthly = number_format($overall_cancellations / $num_months);
 
 $reportdata['footertext'] = "<p align=\"center\"><strong>Annual Cancellations: $overall_cancellations. Monthly Average: $average_monthly</strong></p>";
 
